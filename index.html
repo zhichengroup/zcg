@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>任意门</title>
+	<!--   原网页在 viayoo.com   -->
+<style type="text/css">
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-tap-highlight-color: transparent !important;
+	box-sizing: border-box;
+}
+html {
+	font-size: 16px;
+}
+body {
+	margin: auto;
+	max-width: 96%;
+	width: 750px;
+	padding: 10% 2%;
+	text-align: center;
+}
+#search_box {
+	font-size: 1rem;
+	color: #000;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	padding: 10px;
+	width: 750px;
+	max-width: 100%;
+}
+.search_card {
+	margin-bottom: 10px;
+}
+.op_card {
+	text-align: left;
+	margin-bottom: 20px;
+}
+.btn {
+	color: #3399FF;
+	outline: none;
+	border: none;
+	background: transparent;
+	padding: 5px;
+	margin: 2px;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+
+isPC = !false;
+/*window.onload=function() {
+	console.log("onload");
+	var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            isPC = false;
+            break;
+        }
+		console.log("check ua");
+    }
+    console.log("isPC: " + isPC);
+}*/
+
+function searchWith(url) {
+	var search = document.getElementById("search_box");
+	var key = search.value;
+	if (key != "") {
+		url = url + encodeURIComponent(key);
+		window.open(url);
+		console.log(url);
+		//search.value = "";
+	} else {
+		window.open(url);
+		console.log(url);
+	}
+}
+function search(url = "", pUrl = "") {
+
+	if (!isPC && pUrl != "") {
+		searchWith(pUrl);
+	} else if (url != "") {
+		searchWith(url);
+	}
+}
+function openurl(url)
+	{
+		window.open(url);
+	}
+
+</script>
+
+</head>
+<body style="">
+
+<div class="search_card">
+<input type="text" name="search" id="search_box" placeholder="在此输入...">
+</div>
+
+<div class="op_card">
+<input type="button" class="btn" value="龙轩" onclick="search(&#39;http://search.ilxdh.com/?c=0&s=1&kw=&#39;,&#39;http://search.ilxdh.com/?c=0&s=1&kw=&#39;)">
+<input type="button" class="btn" value="谷歌" onclick="search(&#39;https://www.google.com.hk/search?newwindow=1&amp;q=&#39;)">
+<input type="button" class="btn" value="百度" onclick="search(&#39;https://wwww.baidu.com/s?from=1011440l&amp;word=&#39;, &#39;https://m.baidu.com/s?from=1011440l&amp;word=&#39;)">
+<input type="button" class="btn" value="必应" onclick="search(&#39;http://cn.bing.com/search?q=&#39;)">
+<input type="button" class="btn" value="有道" onclick="search(&#39;https://quick.likeso.ml/search?q=&#39;)">
+<input type="button" class="btn" value="360" onclick="search(&#39;https://www.so.com/s?q=&#39;)">
+<input type="button" class="btn" value="搜狗" onclick="search(&#39;https://www.sogou.com/sogou?query=&#39;)">	
+</div>
+	
+<div class="op_card">
+<input type="button" class="btn" value="Bookmarks" onclick="openurl(&#39;bookmarks.html&#39;)">
+<input type="button" class="btn" value="GoogleTranslate" onclick="openurl(&#39;https://translate.google.cn&#39;)">
+<input type="button" class="btn" value="腾讯文档" onclick="openurl(&#39;https://docs.qq.com/desktop/&#39;)">
+</div>
+
+<div class="op_card">
+<input type="button" class="btn" value="Github" onclick="search(&#39;https://github.com/search?q=&#39;)">
+<input type="button" class="btn" value="知乎" onclick="search(&#39;https://www.zhihu.com/search?type=content&amp;q=&#39;)">
+<input type="button" class="btn" value="微博" onclick="search(&#39;http://s.weibo.com/weibo/&#39;)">
+<input type="button" class="btn" value="豆瓣" onclick="search(&#39;https://www.douban.com/search?q=&#39;, &#39;https://m.douban.com/search/?query=&#39;)">
+<input type="button" class="btn" value="微信" onclick="search(&#39;http://weixin.sogou.com/weixin?type=2&amp;query=&#39;, &#39;http://weixin.sogou.com/weixinwap?type=2&amp;query=&#39;)">
+<input type="button" class="btn" value="掘金" onclick="search(&#39;https://juejin.im/search?query=&#39;)">
+<input type="button" class="btn" value="简书" onclick="search(&#39;http://www.jianshu.com/search?q=&#39;)">
+</div>
+
+<div class="op_card">
+<input type="button" class="btn" value="优酷" onclick="search(&#39;http://www.soku.com/search_video/q_&#39;)">
+<input type="button" class="btn" value="爱奇艺" onclick="search(&#39;http://so.iqiyi.com/so/q_&#39;)">
+<input type="button" class="btn" value="哔哩哔哩" onclick="search(&#39;http://search.bilibili.com/all?keyword=&#39;, &#39;http://m.bilibili.com/search.html?keyword=&#39;)">
+<input type="button" class="btn" value="AcFun" onclick="search(&#39;http://www.acfun.cn/search/?#query=&#39;, &#39;http://m.acfun.cn/search/?query=&#39;)">
+<input type="button" class="btn" value="腾讯视频" onclick="search(&#39;https://v.qq.com/x/search/?q=&#39;)">
+</div>
+
+<div class="op_card">
+<input type="button" class="btn" value="BtMeet" onclick="search(&#39;http://www.btmeet.org/search/&#39;)">
+<input type="button" class="btn" value="RunBt" onclick="search(&#39;http://www.runbt.cc/list/&#39;)">
+</div>
+
+<script>
+document.onkeydown=function(event){
+    var e = event || window.event || arguments.callee.caller.arguments[0];          
+    if(e && e.keyCode==13){
+	    searchWith("https://baidu.com/s?word=");
+    }
+    } 
+</script>
+</body></html>
