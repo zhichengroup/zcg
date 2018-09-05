@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>任意门</title>
+<style type="text/css">
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-tap-highlight-color: transparent !important;
+}
+body {
+	width:400px;
+	height:800px;
+	padding: 10% 2%;
+}
+#search_box {
+	font-size: 1rem;
+	color: #000;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	padding: 10px;
+	width: 400px;
+}
+.search_card {
+	margin-bottom: 10px;
+}
+.op_card {
+	text-align: left;
+	margin-bottom: 20px;
+	width:400px;
+	margin:0 auto;
+}
+.btn {
+	color: #3399FF;
+	outline: none;
+	border: none;
+	background: transparent;
+	padding: 5px;
+	margin: 2px;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+
+isPC = false;
+var search_key = document.getElementById("search_box");
+
+
+function search(url = "" , surl = "" , smurl = "") {
+    var search_key.value="123";
+    key = search_key.value;
+	if (key = "") {
+	    window.open(url);
+		}
+		else if (!isPC && smurl != "") {
+		    searchWith(smurl);
+			}
+			else if (surl != "") {
+			    searchWith(surl);
+				}
+				else {
+				    console.log("error-01");
+					alert("error-01");
+				}
+}
+
+function searchWith(url) {
+	url = url + encodeURIComponent(key);
+	window.open(url);
+	console.log(url);
+}
+
+
+document.onkeydown=function(event) {
+    e = event ? event :(window.event ? window.event : null);
+	if(e.keyCode==13) {
+	    alert('回车检测到了');
+		searchWith("https://m.baidu.com/s?word=");
+		return false; <span style="color:#ff0000;">//阻止回车之后的页面刷新而使得搜索的事件读不到</span>
+		}
+}
+</script>
+
+</head>
+<body>
+
+<div class="search_card">
+<input type="text" name="search" id="search_box" placeholder="在此输入...">
+</div>
+
+<div class="op_card">
+<input type="button" class="btn" value="龙轩" onclick="search(&#39;http://search.ilxdh.com/?c=0&s=1&kw=&#39;,&#39;http://search.ilxdh.com/?c=0&s=1&kw=&#39;,&#39;http://search.ilxdh.com/?c=0&s=1&kw=&#39;)">
+<input type="button" class="btn" value="谷歌" onclick="search(&#39;https://www.google.com.hk/search?newwindow=1&amp;q=&#39;)">
+<input type="button" class="btn" value="百度" onclick="search(&#39;https://wwww.baidu.com &#39;,&#39;https://wwww.baidu.com/s?from=1011440l&amp;word=&#39;,&#39;https://m.baidu.com/s?from=1011440l&amp;word=&#39;)">
+<input type="button" class="btn" value="必应" onclick="search(&#39;http://cn.bing.com/search?q=&#39;)">
+<input type="button" class="btn" value="谷歌镜像" onclick="search(&#39;https://quick.likeso.ml/search?q=&#39;)">
+<input type="button" class="btn" value="360" onclick="search(&#39;https://www.so.com/s?q=&#39;)">
+<input type="button" class="btn" value="搜狗" onclick="search(&#39;https://www.sogou.com/sogou?query=&#39;)">	
+</div>
+	
+<div class="op_card">
+<input type="button" class="btn" value="Bookmarks" onclick="search(&#39;webpage/bookmarks.html&#39;)">
+<input type="button" class="btn" value="GoogleTranslate" onclick="search(&#39;https://translate.google.cn&#39;)">
+<input type="button" class="btn" value="腾讯文档" onclick="search(&#39;https://docs.qq.com/desktop/&#39;)">
+</div>
+
+<div class="op_card">
+<input type="button" class="btn" value="Github" onclick="search(&#39;https://github.com/search?q=&#39;)">
+<input type="button" class="btn" value="知乎" onclick="search(&#39;https://www.zhihu.com/search?type=content&amp;q=&#39;)">
+<input type="button" class="btn" value="简书" onclick="search(&#39;http://www.jianshu.com/search?q=&#39;)">
+</div>
+
+<div class="op_card">
+<input type="button" class="btn" value="哔哩哔哩" onclick="search(&#39;http://search.bilibili.com/all?keyword=&#39;, &#39;http://m.bilibili.com/search.html?keyword=&#39;)">
+<input type="button" class="btn" value="腾讯视频" onclick="search(&#39;https://v.qq.com/x/search/?q=&#39;)">
+</div>
+
+<script>
+
+</script>
+</body></html>
